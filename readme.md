@@ -1,7 +1,7 @@
 **Usage**
 
 
-Along with all results, it also returns the status of isLast and isFirst. For example, you might want to hide your left pagination arrow when the user is seeing the first of all the paginated pages.
+Along with all paginated result, it also returns the status of isLast and isFirst. For example, you might want to hide your left pagination arrow when the user is seeing the first of all the paginated pages.
 
 ```ts
 
