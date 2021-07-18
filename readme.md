@@ -38,4 +38,4 @@ The amount of items returned per pagination.
 Offset pagination beginning position.
 
 
-TS Playground: shorturl.at/MNUV1
+[TS Playground](shorturl.at/MNUV1)
