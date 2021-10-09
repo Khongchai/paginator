@@ -40,9 +40,8 @@ export class Paginator<T> {
   getPagePosition() {
     const length = this.array.length;
     const totalPages = Math.ceil(length / this.limit);
-    const currentPage = Math.ceil(this.page / this.limit);
     return {
-      page: currentPage === 0 ? 1 : currentPage,
+      page: this.page,
       of: totalPages,
     };
   }
