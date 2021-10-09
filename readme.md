@@ -24,6 +24,27 @@ if (paginateLeftArrowClicked)
 
 ```
 
+React hook example
+```ts
+
+export default function usePagination(items: any[], page: number) {
+  const paginator = useMemo(() => new Paginator(items, 7, 0), []);
+
+  const res = useMemo(() => {
+    paginator.setPage(page);
+    const { data: paginateditems } = paginator.getItemsAtCurrentPage();
+    const { page: currentPagePos, of: totalPages } =
+      paginator.getPagePosition();
+
+    return { currentPagePos, totalPages, paginateditems };
+  }, [items, page]);
+
+  return { ...res };
+}
+
+
+```
+
 **Parameters**
 
 *Array*
