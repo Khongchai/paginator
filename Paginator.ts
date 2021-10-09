@@ -19,7 +19,8 @@ export class Paginator<T> {
   }
 
   getItemsAtCurrentPage() {
-    const data = this.array.slice(this.page - 1, this.page - 1 + this.limit);
+    const start = this.limit * (this.page - 1);
+    const data = this.array.slice(start, start + this.limit);
     return this.checkZeroReturn(data);
   }
 
