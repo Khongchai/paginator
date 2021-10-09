@@ -1,16 +1,16 @@
-export class Paginator {
+export class Paginator<T> {
   readonly limit: number;
   page: number;
   skip: number;
-  array: any[];
-  constructor(array: any[], limit: number, skip?: number) {
+  array: T[];
+  constructor(array: T[], limit: number, skip?: number) {
     this.limit = limit;
     this.array = array;
     this.skip = skip ? skip : 0;
     this.page = 1 + (skip || 0);
   }
 
-  setArray(array: any) {
+  setArray(array: T[]) {
     this.array = array;
   }
 
@@ -51,7 +51,7 @@ export class Paginator {
     return this.array;
   }
 
-  private checkFirstAndLast(data: any) {
+  private checkFirstAndLast(data: T[]) {
     return {
       isFirst: this.page === 0,
       isLast: data.length < this.limit,
@@ -61,7 +61,7 @@ export class Paginator {
   /**
    * If returns 0, something is wrong, because pagination should always return soemthing
    */
-  private checkZeroReturn(data: any[]) {
+  private checkZeroReturn(data: T[]) {
     if (data.length < 0) {
       console.error("Pagination position is less than 0");
     }
