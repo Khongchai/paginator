@@ -1,5 +1,5 @@
 export class Paginator<T> {
-  readonly limit: number;
+  limit: number;
   page: number;
   skip: number;
   array: T[];
