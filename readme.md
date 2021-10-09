@@ -32,11 +32,11 @@ export default function usePagination(items: any[], page: number) {
 
   const res = useMemo(() => {
     paginator.setPage(page);
-    const { data: paginateditems } = paginator.getItemsAtCurrentPage();
+    const { data: paginatedItems } = paginator.getItemsAtCurrentPage();
     const { page: currentPagePos, of: totalPages } =
       paginator.getPagePosition();
 
-    return { currentPagePos, totalPages, paginateditems };
+    return { currentPagePos, totalPages, paginatedItems };
   }, [items, page]);
 
   return { ...res };
