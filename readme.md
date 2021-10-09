@@ -11,13 +11,13 @@ const skip = 0;
 
 const paginator = new Paginator(array, limit, skip);
 
-const stateBeforePagination = paginator.getItemsAtCurrent(); // will return {isFirst: true, isLast: false, data: [1, 2]}
+const stateBeforePagination = paginator.getItemsAtCurrentPage(); // will return {isFirst: true, isLast: false, data: [1, 2]}
 
 if (paginateLeftArrowClicked)
 {
   
   paginator.paginateForward();
-  const currentState = paginator.getItemsAtCurrent();// will return {isFirst: false, isLast: false, data: [3, 4]}
+  const currentState = paginator.getItemsAtCurrentPage();// will return {isFirst: false, isLast: false, data: [3, 4]}
   
   const pagePosition = paginator.getPagePosition(); // will return {page: 2, of: 3}
 }
