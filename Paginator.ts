@@ -1,38 +1,46 @@
 export class Paginator {
   readonly limit: number;
-  current: number;
+  page: number;
   skip: number;
   array: any[];
   constructor(array: any[], limit: number, skip?: number) {
     this.limit = limit;
     this.array = array;
     this.skip = skip ? skip : 0;
-    this.current = 0 + skip;
+    this.page = 1 + (skip || 0);
   }
 
-  getItemsAtCurrent() {
-    const data = this.array.slice(this.current, this.current + this.limit);
+  setArray(array: any) {
+    this.array = array;
+  }
+
+  setPage(page: number) {
+    this.page = page;
+  }
+
+  getItemsAtCurrentPage() {
+    const data = this.array.slice(this.page - 1, this.page - 1 + this.limit);
     return this.checkZeroReturn(data);
   }
 
   paginateForward() {
-    this.current = this.current + this.limit;
+    this.page = this.page + this.limit;
 
-    const data = this.array.slice(this.current, this.current + this.limit);
+    const data = this.array.slice(this.page - 1, this.page - 1 + this.limit);
     return this.checkZeroReturn(data);
   }
 
   paginateBackward() {
-    this.current = this.current - this.limit;
+    this.page = this.page - this.limit;
 
-    const data = this.array.slice(this.current, this.current + this.limit);
+    const data = this.array.slice(this.page - 1, this.page - 1 + this.limit);
     return this.checkZeroReturn(data);
   }
 
   getPagePosition() {
     const length = this.array.length;
     const totalPages = Math.ceil(length / this.limit);
-    const currentPage = Math.ceil((this.current + 1) / this.limit);
+    const currentPage = Math.ceil(this.page / this.limit);
     return {
       page: currentPage === 0 ? 1 : currentPage,
       of: totalPages,
@@ -45,7 +53,7 @@ export class Paginator {
 
   private checkFirstAndLast(data: any) {
     return {
-      isFirst: this.current === 0,
+      isFirst: this.page === 0,
       isLast: data.length < this.limit,
     };
   }
