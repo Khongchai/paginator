@@ -3,6 +3,7 @@
 
 Along with all paginated result, it also returns the status of isLast and isFirst. For example, you might want to hide your left pagination arrow when the user is seeing the first of all the paginated pages.
 
+Typescript example
 ```ts
 
 const array = [1, 2, 3, 4, 5, 6];
@@ -24,7 +25,7 @@ if (paginateLeftArrowClicked)
 
 ```
 
-You can also use this to create a custom pagination hook in React.
+React Typescript example
 ```ts
 
 export default function usePagination<T>(
