@@ -24,7 +24,7 @@ if (paginateLeftArrowClicked)
 
 ```
 
-React hook example
+You can also use this to create a custom pagination hook in React.
 ```ts
 
 export default function usePagination<T>(
